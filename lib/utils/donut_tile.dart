@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class DonutTile extends StatelessWidget {
   final String donutFlavor;
   final String donutPrice;
+  final String donutStore; 
   //Dynamic porque sera de tipo color 
   final dynamic donutColor;
   final String imageName;
@@ -10,6 +11,7 @@ class DonutTile extends StatelessWidget {
   const DonutTile(
     {super.key, 
     required this.donutFlavor,
+    required this.donutStore,
     required this.donutPrice, 
     required this.donutColor, 
     required this.imageName});
@@ -67,39 +69,42 @@ class DonutTile extends StatelessWidget {
                   //color: donutColor
                 ),),
 
-            Text("Dunkin's", style: TextStyle(
+            Text(donutStore, style: TextStyle(
               fontSize: 16
             ),),
             //Icons 
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  onPressed: (){}, 
-                  icon: Icon(
-                    Icons.favorite_border,  
-                    color: donutColor
-
-                  )
-                ),
-
-                const SizedBox(height: 15),
-
-                TextButton(
-                  onPressed: (){}, 
-                  child: Text("Add", 
-                    style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      fontSize: 16, 
-                      decoration: TextDecoration.underline,
-                      decorationColor: donutColor,
-                      color: donutColor,
-                    ),
-                  )
-                ),
-
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    onPressed: (){}, 
+                    icon: Icon(
+                      Icons.favorite_border,  
+                      color: donutColor
+              
+                    )
+                  ),
+              
+                  const SizedBox(height: 15),
+              
+                  TextButton(
+                    onPressed: (){}, 
+                    child: Text("Add", 
+                      style: TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontSize: 16, 
+                        decoration: TextDecoration.underline,
+                        decorationColor: donutColor,
+                        color: donutColor,
+                      ),
+                    )
+                  ),
+              
+                ],
+              ),
             ), 
           ],
         ),
