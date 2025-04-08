@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-class DonutTile extends StatelessWidget {
-  final String donutFlavor;
-  final String donutPrice;
-  final String donutStore;
-  final dynamic donutColor;
+class SmoothieTile extends StatelessWidget {
+  final String smoothieFlavor;
+  final String smoothiePrice;
+  final String smoothieStore;
+  final dynamic smoothieColor;
   final String imageName;
   final ValueChanged<double> onAdd; // Función para agregar un ítem al carrito
 
-  const DonutTile({
+  const SmoothieTile({
     super.key,
-    required this.donutFlavor,
-    required this.donutStore,
-    required this.donutPrice,
-    required this.donutColor,
+    required this.smoothieFlavor,
+    required this.smoothieStore,
+    required this.smoothiePrice,
+    required this.smoothieColor,
     required this.imageName,
     required this.onAdd,  // Recibe la función para agregar un ítem
   });
@@ -24,7 +24,7 @@ class DonutTile extends StatelessWidget {
       padding: const EdgeInsets.all(12.0),
       child: Container(
         decoration: BoxDecoration(
-          color: donutColor[50],
+          color: smoothieColor[50],
           borderRadius: BorderRadius.circular(24),
         ),
         child: Column(
@@ -34,18 +34,18 @@ class DonutTile extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: donutColor[100],
+                    color: smoothieColor[100],
                     borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(24),
                         topRight: Radius.circular(24)),
                   ),
                   padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
                   child: Text(
-                    '\$$donutPrice',
+                    '\$$smoothiePrice',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
-                      color: donutColor[800],
+                      color: smoothieColor[800],
                     ),
                   ),
                 ),
@@ -58,8 +58,8 @@ class DonutTile extends StatelessWidget {
                 child: Image.asset(imageName),
               ),
             ),
-            Text(donutFlavor, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-            Text(donutStore, style: TextStyle(fontSize: 16)),
+            Text(smoothieFlavor, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            Text(smoothieStore, style: TextStyle(fontSize: 16)),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
               child: Row(
@@ -67,14 +67,14 @@ class DonutTile extends StatelessWidget {
                 children: [
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.favorite_border, color: donutColor),
+                    icon: Icon(Icons.favorite_border, color: smoothieColor),
                   ),
                   TextButton(
                     onPressed: () {
-                      double price = double.tryParse(donutPrice) ?? 0;
+                      double price = double.tryParse(smoothiePrice) ?? 0;
                       onAdd(price); // Llamar a onAdd con el precio de la dona
                     },
-                    child: Text("Add", style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16, color: donutColor)),
+                    child: Text("Add", style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16, color: smoothieColor)),
                   ),
                 ],
               ),
@@ -85,4 +85,3 @@ class DonutTile extends StatelessWidget {
     );
   }
 }
-
